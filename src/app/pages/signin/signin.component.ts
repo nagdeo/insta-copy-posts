@@ -13,6 +13,7 @@ export class SigninComponent implements OnInit {
   constructor(private auth:AuthService,private toastr:ToastrService,private router:Router) { }
 
   ngOnInit() {
+    console.log(this.router)
   }
 
   onSubmit(f:NgForm){

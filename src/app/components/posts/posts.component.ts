@@ -64,6 +64,6 @@ export class PostsComponent implements OnInit,OnChanges {
   }
 
   getInstaUrl() {
-    return `https://instagram.com/${this.post.insaId}`;
+    return `https://instagram.com/${this.post.instaId}`;
   }
 }

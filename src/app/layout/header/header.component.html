@@ -23,34 +23,37 @@
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav ml-auto">
       <!-- if the user is present then printing email -->
-      <div *ngIf="email" class="navbar-text float-left">
+      <div *ngIf="email" class="navbar-text float-left cursor-pointer">
         {{ email }}
       </div>
       <a
 
         [routerLink]="['/']"
-        class="nav-item nav-link"
+        class="nav-item nav-link cursor-pointer"
+         style="color:darkslateblue;"
         >Home</a
       >
       <!-- conditionally rendering links  -->
-      <a *ngIf="!email" routerLinkActive="active" [routerLink]="['/signin']" class="nav-item nav-link"
+      <a *ngIf="!email"  routerLinkActive="active" [routerLink]="['/signin']" class="nav-item nav-link cursor-pointer"
         >Sign In</a
       >
-      <a *ngIf="!email" routerLinkActive="active" [routerLink]="['/signup']" class="nav-item nav-link"
+      <a *ngIf="!email" routerLinkActive="active" [routerLink]="['/signup']" class="nav-item nav-link cursor-pointer"
         >Sign Up</a
       >
 
       <a
         *ngIf="email"
         (click)="handleSignOut()"
-        class="nav-item nav-link text-warning"
+
+        class="nav-item nav-link text-warning cursor-pointer"
+        style="color: darkslateblue !important;"
         >Log Out</a
       >
 
       <a
       *ngIf="email"
         [routerLink]="['/addpost']"
-        class="nav-item nav-link btn btn-warning text-primary"
+        class="nav-item nav-link btn btn-warning text-primary cursor-pointer postBtn"
       >
         Post Your Story</a
       >
@@ -58,3 +61,14 @@
   </div>
 </nav>
 
+
+<div
+    *ngIf="isLoading"
+    class="d-flex justify-content-center align-items-center min-vh-100"
+  >
+    <div
+      class="spinner-border text-light"
+      style="width: 3rem; height: 3rem;"
+      role="status"
+    ></div>
+  </div>
