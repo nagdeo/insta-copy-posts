@@ -29,9 +29,10 @@ export class HeaderComponent implements OnInit {
     this.auth.getUser().subscribe((user)=>{
       if(user){
         this.email=user.email;
-        this.isLoading=false;
+
 
       }
+
       console.log("user is ",user)
 
   });
