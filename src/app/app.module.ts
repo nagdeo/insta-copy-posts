@@ -24,6 +24,15 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import {AngularFireAuthGuardModule} from '@angular/fire/auth-guard';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+const fir={
+  apiKey: "AIzaSyA3Amh2ZxHO0HK6Uov3odziWrcTfbWEAiA",
+  authDomain: "insta-maker-copy.firebaseapp.com",
+  databaseURL: "https://insta-maker-copy-default-rtdb.firebaseio.com",
+  projectId: "insta-maker-copy",
+  storageBucket: "insta-maker-copy.appspot.com",
+  messagingSenderId: "252733986596",
+  appId: "1:252733986596:web:337efc90df59fb1865c5b1"
+}
 
 
 @NgModule({
@@ -43,15 +52,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     BrowserModule,
     AppRoutingModule,
     AngularFireAuthModule,
-    AngularFireModule.initializeApp(
-      apiKey: "AIzaSyA3Amh2ZxHO0HK6Uov3odziWrcTfbWEAiA",
-      authDomain: "insta-maker-copy.firebaseapp.com",
-      databaseURL: "https://insta-maker-copy-default-rtdb.firebaseio.com",
-      projectId: "insta-maker-copy",
-      storageBucket: "insta-maker-copy.appspot.com",
-      messagingSenderId: "252733986596",
-      appId: "1:252733986596:web:337efc90df59fb1865c5b1"
-    ),
+    AngularFireModule.initializeApp(fir),
     HttpClientModule,BrowserAnimationsModule,ToastrModule.forRoot(),
     FontAwesomeModule,
     FormsModule,
