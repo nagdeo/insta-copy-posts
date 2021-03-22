@@ -25,6 +25,7 @@ export class SigninComponent implements OnInit {
      .catch((error)=>{
         this.toastr.error(error.messaage,'',{closeButton:true});
      })
+     this.auth.notifyRefreshHeader();
   }
 
 }

@@ -17,7 +17,7 @@ import {imageConfig} from 'src/utils/config';
 })
 export class SignupComponent implements OnInit {
 
-  picture:any="";
+  picture:string=null;
   uploadpercent: number=null;
   constructor(public auth:AuthService,private router :Router,private db:AngularFireDatabase,
     private storage:AngularFireStorage,private toastr:ToastrService) {
@@ -52,6 +52,7 @@ export class SignupComponent implements OnInit {
        .catch((err)=>{
         this.toastr.success("Sign up successfully"+err);
        });
+       this.auth.notifyRefreshHeader();
   }
 
   async uploadFile(event){
@@ -72,11 +73,11 @@ export class SignupComponent implements OnInit {
       finalize(()=>{
         fileref.getDownloadURL().subscribe((url)=>{
           this.picture=url;
-
+          console.log(this.picture)
           this.toastr.success('image uploaded successfully');
         })
       })
-    )
+    ).subscribe();
   }
 
 }

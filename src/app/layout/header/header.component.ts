@@ -10,13 +10,20 @@ import {Router} from '@angular/router';
 export class HeaderComponent implements OnInit {
   email=null;
   constructor(private auth:AuthService,private toastr:ToastrService,private router:Router) {
-    this.auth.getUser().subscribe((user)=>{
-        this.email=user.email;
-        console.log("user is ",user)
-    })
+    this.auth.observeRefreshHeader().subscribe(() => {
+      this.email=null;
+      console.log("calling")
+      this.ngOnInit();
+   });
+
+
   }
 
   ngOnInit() {
+    this.auth.getUser().subscribe((user)=>{
+      this.email=user.email;
+      console.log("user is ",user)
+  })
   }
 
   async handleSignOut(){
@@ -24,10 +31,17 @@ export class HeaderComponent implements OnInit {
           await this.auth.signOut();
           this.router.navigateByUrl("/signin");
           this.toastr.info("Logged out successfully");
+
      }catch(error)
      {
        this.toastr.error("problem in signout");
      }
+     this.email=null
+     this.ngOnInit();
+  }
+
+  referesh(){
+    this.ngOnInit();
   }
 
 }
